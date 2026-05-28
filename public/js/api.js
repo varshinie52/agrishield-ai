@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000";
+ const BASE_URL = "";
 
 // GET TOKEN
 const getToken = () => localStorage.getItem("token");
@@ -42,15 +42,18 @@ function isLoggedIn() {
 // apiGetMyHistory helper
 async function apiGetMyHistory() {
     const response = await getHistory();
+
     if (!response.ok) {
         throw new Error("Failed to retrieve scan history.");
     }
+
     return response.json();
 }
 
 // apiSaveHistory helper
 async function apiSaveHistory(predictionResult, confidenceScore, imageBase64) {
     const token = localStorage.getItem("token");
+
     const response = await fetch(`${BASE_URL}/api/history/save`, {
         method: "POST",
         headers: {
@@ -63,9 +66,11 @@ async function apiSaveHistory(predictionResult, confidenceScore, imageBase64) {
             imageBase64
         })
     });
+
     if (!response.ok) {
         throw new Error("Failed to save scan history.");
     }
+
     return response.json();
 }
 
