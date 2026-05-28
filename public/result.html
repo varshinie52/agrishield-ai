@@ -1,0 +1,485 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Report Terminal | AgriShield</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="index.html" class="logo">
+            AGRI<span>SHIELD</span>
+        </a>
+
+        <div class="nav-container">
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="analyzer.html">Analyzer</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="history.html">History</a></li>
+            </ul>
+
+            <div id="navbarAuthWrapper"></div>
+
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="grid-2">
+
+        <!-- IMAGE PANEL -->
+        <div class="glass-card" style="text-align:center;">
+
+            <h3 style="
+                margin-bottom:20px;
+                text-align:left;
+                font-weight:600;
+                letter-spacing:0.5px;
+            ">
+                Scanned Foliage Asset
+            </h3>
+
+            <img
+                id="dynamicResultTargetFrame"
+                src=""
+                alt="Plant Scan Result"
+                style="
+                    width:100%;
+                    border-radius:14px;
+                    border:1px solid var(--glass-border);
+                    background:#030806;
+                    min-height:280px;
+                    max-height:380px;
+                    object-fit:contain;
+                "
+            >
+
+        </div>
+
+        <!-- REPORT PANEL -->
+        <div class="glass-card">
+
+            <!-- TITLE + BADGE -->
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin-bottom:25px;
+            ">
+
+                <h2
+                    id="reportDiseaseNameDisplayField"
+                    style="
+                        color:var(--primary-neon);
+                        font-size:1.8rem;
+                        font-weight:700;
+                    "
+                >
+                    Loading...
+                </h2>
+
+                <span
+                    id="reportSeverityIndexBadge"
+                    class="status-badge"
+                >
+                    Processing...
+                </span>
+
+            </div>
+
+            <!-- METRICS -->
+            <div
+                class="grid-2"
+                style="
+                    gap:15px;
+                    margin-bottom:25px;
+                "
+            >
+
+                <div
+                    class="glass-card"
+                    style="
+                        padding:15px 20px;
+                        background:rgba(255,255,255,0.02);
+                    "
+                >
+
+                    <small style="
+                        color:var(--text-dim);
+                        display:block;
+                        margin-bottom:4px;
+                    ">
+                        Neural Confidence Rate
+                    </small>
+
+                    <h3
+                        id="reportConfidenceScoreDisplayField"
+                        style="
+                            font-size:1.6rem;
+                            color:var(--primary-neon);
+                            font-weight:700;
+                        "
+                    >
+                        0%
+                    </h3>
+
+                </div>
+
+                <div
+                    class="glass-card"
+                    style="
+                        padding:15px 20px;
+                        background:rgba(255,255,255,0.02);
+                    "
+                >
+
+                    <small style="
+                        color:var(--text-dim);
+                        display:block;
+                        margin-bottom:4px;
+                    ">
+                        Estimated Damage Area
+                    </small>
+
+                    <h3
+                        id="reportAffectedAreaDisplayField"
+                        style="
+                            font-size:1.6rem;
+                            color:var(--accent-lime);
+                            font-weight:700;
+                        "
+                    >
+                        0%
+                    </h3>
+
+                </div>
+
+            </div>
+
+            <!-- DESCRIPTION -->
+            <h4 style="
+                margin-bottom:10px;
+                font-weight:600;
+                font-size:1rem;
+                color:#ffffff;
+            ">
+                AI Classification Summary Directive
+            </h4>
+
+            <p
+                id="reportDynamicPathologyExplanationText"
+                style="
+                    font-size:0.95rem;
+                    opacity:0.85;
+                    margin-bottom:35px;
+                    min-height:70px;
+                "
+            >
+                Waiting for AI classification data...
+            </p>
+
+            <!-- ACTION BUTTONS -->
+            <div style="
+                display:flex;
+                gap:15px;
+                align-items:center;
+            ">
+
+                <a
+                    href="treatment.html"
+                    id="reportAdaptiveTreatmentRedirectionActionButton"
+                    class="btn-neon"
+                    style="
+                        flex:1;
+                        text-align:center;
+                    "
+                >
+                    View Treatment Plan 🧪
+                </a>
+
+                <a
+                    href="analyzer.html"
+                    class="btn-secondary"
+                    style="
+                        flex:1;
+                        text-align:center;
+                    "
+                >
+                    Clear Workspace
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p style="
+            text-align:center;
+            font-size:0.8rem;
+            color:var(--text-dim);
+        ">
+            &copy; 2026 AgriShield AI Inc.
+            Deep Learning Verification Terminal Node.
+        </p>
+
+    </footer>
+
+    <!-- API INTEGRATION -->
+    <script src="js/api.js"></script>
+
+    <!-- APP SCRIPT -->
+    <script src="js/app.js"></script>
+
+    <!-- RESULT ENGINE -->
+    <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        console.log("🔄 Loading Diagnostic Report...");
+
+        // -----------------------------------
+        // IMAGE RECOVERY
+        // -----------------------------------
+
+        const cachedImage =
+            localStorage.getItem(
+                'agri_temp_scan_binary'
+            );
+
+        const resultImage =
+            document.getElementById(
+                'dynamicResultTargetFrame'
+            );
+
+        if (resultImage) {
+
+            if (cachedImage) {
+
+                resultImage.src = cachedImage;
+
+                console.log("✅ Image Loaded");
+
+            } else {
+
+                console.warn("⚠ No Image Found");
+
+                resultImage.src =
+                    "https://via.placeholder.com/500x300?text=No+Image";
+            }
+        }
+
+        // -----------------------------------
+        // RESULT RECOVERY
+        // -----------------------------------
+
+        const rawData =
+            localStorage.getItem(
+                'agri_last_diagnostic_output'
+            );
+
+        if (!rawData) {
+
+            console.error(
+                "❌ No Diagnostic Data Found"
+            );
+
+            document.getElementById(
+                'reportDiseaseNameDisplayField'
+            ).innerText =
+                "No Diagnostic Record Found";
+
+            return;
+        }
+
+        let parsedData;
+
+        try {
+
+            parsedData = JSON.parse(rawData);
+
+            console.log(
+                "✅ Parsed Result:",
+                parsedData
+            );
+
+        } catch (error) {
+
+            console.error(
+                "❌ JSON Parse Error:",
+                error
+            );
+
+            return;
+        }
+
+        // -----------------------------------
+        // DOM ELEMENTS
+        // -----------------------------------
+
+        const domTitle =
+            document.getElementById(
+                'reportDiseaseNameDisplayField'
+            );
+
+        const domBadge =
+            document.getElementById(
+                'reportSeverityIndexBadge'
+            );
+
+        const domConfidence =
+            document.getElementById(
+                'reportConfidenceScoreDisplayField'
+            );
+
+        const domArea =
+            document.getElementById(
+                'reportAffectedAreaDisplayField'
+            );
+
+        const domDesc =
+            document.getElementById(
+                'reportDynamicPathologyExplanationText'
+            );
+
+        const domButton =
+            document.getElementById(
+                'reportAdaptiveTreatmentRedirectionActionButton'
+            );
+
+        // -----------------------------------
+        // SAFE DATA RENDERING
+        // -----------------------------------
+
+        domTitle.innerText =
+            parsedData.name || "Unknown";
+
+        domConfidence.innerText =
+            parsedData.confidence || "0%";
+
+        domArea.innerText =
+            parsedData.area || "0%";
+
+        domBadge.innerText =
+            parsedData.severity || "Unknown";
+
+        // -----------------------------------
+        // HEALTHY STATUS COLORS
+        // -----------------------------------
+
+        const severityText =
+            parsedData.severity
+            ? parsedData.severity.toLowerCase()
+            : "";
+
+        if (
+            severityText.includes("optimal") ||
+            severityText.includes("healthy")
+        ) {
+
+            domBadge.style.background =
+                "rgba(128,237,153,0.15)";
+
+            domBadge.style.color =
+                "#80ed99";
+
+        } else {
+
+            domBadge.style.background =
+                "rgba(255,71,87,0.15)";
+
+            domBadge.style.color =
+                "#ff4757";
+        }
+
+        // -----------------------------------
+        // DISEASE KNOWLEDGE ENGINE
+        // -----------------------------------
+
+        const diseaseDictionary = {
+
+            "rust": {
+                desc:
+                    "🧫 Rust fungal spores detected. Apply copper-based fungicide weekly.",
+                btn:
+                    "View Rust Treatment 🧪"
+            },
+
+            "powdery mildew": {
+                desc:
+                    "💧 Powdery mildew traces identified. Reduce humidity and apply neem spray.",
+                btn:
+                    "View Mildew Treatment 🌿"
+            },
+
+            "healthy": {
+                desc:
+                    "✨ Plant health status optimal. No pathogen traces detected.",
+                btn:
+                    "View Plant Care Tips 🌱"
+            }
+        };
+
+        // -----------------------------------
+        // SMART LABEL MATCHING
+        // -----------------------------------
+
+        const diseaseKey =
+            parsedData.name
+            ? parsedData.name.toLowerCase().trim()
+            : "";
+
+        let record =
+            diseaseDictionary[diseaseKey];
+
+        if (!record) {
+
+            if (
+                diseaseKey.includes("healthy")
+            ) {
+
+                record =
+                    diseaseDictionary["healthy"];
+
+            } else {
+
+                record = {
+                    desc:
+                        `⚠ AI detected anomaly pattern under class: ${parsedData.name}. Further remediation recommended.`,
+                    btn:
+                        "Open Treatment Guide 🔍"
+                };
+            }
+        }
+
+        // -----------------------------------
+        // FINAL UI UPDATE
+        // -----------------------------------
+
+        domDesc.innerText =
+            record.desc;
+
+        domButton.innerText =
+            record.btn;
+
+        console.log(
+            "✅ Report Rendering Complete"
+        );
+
+    });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Workspace Terminal | AgriShield</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.17.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.5/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">AGRI<span>SHIELD</span></a>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="analyzer.html">Analyzer</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="disease-details.html">Disease Info</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div id="navbarAuthWrapper"></div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="glass-card" style="max-width: 720px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 1.7rem; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.5px;">
+                Diagnostic Workspace Terminal
+            </h2>
+            <p style="color: var(--text-mint); opacity: 0.6; font-size: 0.95rem; margin-bottom: 35px;">
+                Submit raw crop leaf specimen imagery data streams for real-time edge-device classification processing.
+            </p>
+            
+            <div class="drop-zone" id="interactiveDropZone">
+                <div class="scan-line"></div>
+                
+                <div id="uploadPromptInfoText">
+                    <p style="font-size: 3.2rem; margin-bottom: 15px;">📥</p>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: #ffffff;">
+                        Drop leaf texture asset file here or click terminal paths to search local networks
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 10px;">
+                        System operational bounds configuration parameters limit: Maximum 15MB file sizes
+                    </p>
+                </div>
+                
+                <img id="imageFilePreview" class="preview-img" alt="Foliage specimen preview dataset container">
+                
+                <input type="file" id="fileInput" hidden accept="image/*">
+            </div>
+
+            <button type="button" id="executionScanTriggerBtn" class="btn-neon" style="width: 100%; margin-top: 30px; display: none;">
+                Initialize AI Diagnosis Grid
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 15px;">AGRI<span>SHIELD</span></div>
+                <p style="font-size: 0.85rem; color: var(--text-mint); opacity: 0.6;">
+                    Autonomous botanical disease diagnostics system monitoring framework loops locally at client-side sandbox environments.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>System Workspace Ports</h4>
+                <ul>
+                    <li><a href="analyzer.html">Neural Analyzer Core</a></li>
+                    <li><a href="dashboard.html">Telemetry Dashboard Metrics</a></li>
+                    <li><a href="history.html">Local Data Cache Repositories</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Remediation Channels 👨‍🌾</h4>
+                <ul>
+                    <li><a href="disease-details.html">Pathology Strains Reference Catalog</a></li>
+                    <li><a href="treatment.html">Sustainable Intervention Guidelines</a></li>
+                </ul>
+            </div>
+        </div>
+        <p style="text-align: center; font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; margin-top: 20px;">
+            &copy; 2026 AgriShield AI Inc. Deep Convolutional Network Node Sandbox Interface.
+        </p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/analyzer.js"></script>
+</body>
+</html>

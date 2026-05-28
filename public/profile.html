@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AgriShield AI - Profile Hub Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">AGRI<span>SHIELD</span></a>
+        <div class="nav-container">
+            <ul class="nav-links" id="navbarLinksList">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="analyzer.html">Analyzer</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+            <div id="navbarAuthWrapper"></div>
+        </div>
+    </nav>
+    <main style="max-width: 740px; margin: 0 auto;">
+        <div class="glass-card">
+            <h2 style="margin-bottom: 30px;">Account Identity Profile Parameters</h2>
+            <form id="formComponentProfileEdit">
+                <div class="form-group"><label>User Display Name</label><input type="text" id="profileUpdateNameInput" required></div>
+                <div class="form-group"><label>Workspace Email Identity Node</label><input type="email" id="profileUpdateEmailInput" required></div>
+                <button type="submit" class="btn-neon" style="width: 100%; margin-top: 10px;">Commit Operational Updates</button>
+            </form>
+        </div>
+    </main>
+    <script src="js/app.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

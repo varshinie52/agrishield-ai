@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriShield AI - Admin Command Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">AGRI<span>SHIELD</span></a>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="analyzer.html">Analyzer</a></li>
+                <li><a href="admin-dashboard.html">Admin Panel</a></li>
+                <li><a href="history.html">History</a></li>
+            </ul>
+            <div id="navbarAuthWrapper"></div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HEADER -->
+        <div style="margin-bottom:35px;">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+                <span style="font-size:1.8rem;">🛡️</span>
+                <h1 style="font-size:1.8rem;font-weight:700;">Admin Command Center</h1>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;margin-left:46px;">System-wide user governance and scan analytics telemetry.</p>
+        </div>
+
+        <!-- STATS ROW -->
+        <div class="grid-3" style="margin-bottom:35px;">
+            <div class="glass-card" style="padding:25px 30px;">
+                <h4 style="color:var(--text-dim);font-size:0.85rem;margin-bottom:6px;">Total Registered Users</h4>
+                <h2 id="adminStatTotalUsers" style="font-size:2.6rem;font-weight:700;color:var(--primary-neon);">—</h2>
+            </div>
+            <div class="glass-card" style="padding:25px 30px;">
+                <h4 style="color:var(--text-dim);font-size:0.85rem;margin-bottom:6px;">Admin Operators</h4>
+                <h2 id="adminStatAdminUsers" style="font-size:2.6rem;font-weight:700;color:#818cf8;">—</h2>
+            </div>
+            <div class="glass-card" style="padding:25px 30px;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                    <div>
+                        <h4 style="color:var(--text-dim);font-size:0.85rem;margin-bottom:6px;">Regular Users</h4>
+                        <h2 id="adminStatRegularUsers" style="font-size:2.6rem;font-weight:700;">—</h2>
+                    </div>
+                    <div>
+                        <h4 style="color:var(--text-dim);font-size:0.85rem;margin-bottom:6px;">Total Scans</h4>
+                        <h2 id="adminStatTotalScans" style="font-size:2.6rem;font-weight:700;color:var(--accent-lime);">—</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB NAVIGATION -->
+        <div style="display:flex;gap:0;margin-bottom:0;">
+            <button id="adminTabUsers" class="admin-tab active">
+                👥 Users Management
+            </button>
+            <button id="adminTabHistory" class="admin-tab">
+                📋 All Scan History
+            </button>
+        </div>
+
+        <!-- USERS PANEL -->
+        <div id="adminPanelUsers" class="glass-card" style="border-top-left-radius:0;border-top-right-radius:0;">
+            <!-- Loading -->
+            <div id="adminUsersLoading" class="loading-spinner-container" style="display:none;">
+                <div class="loading-spinner"></div>
+                <p style="color:var(--text-dim);margin-top:12px;font-size:0.9rem;">Fetching user registry...</p>
+            </div>
+            <!-- Table -->
+            <div style="overflow-x:auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Joined</th>
+                            <th style="width:60px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminUsersBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- HISTORY PANEL -->
+        <div id="adminPanelHistory" class="glass-card" style="display:none;border-top-left-radius:0;border-top-right-radius:0;">
+            <!-- Loading -->
+            <div id="adminHistoryLoading" class="loading-spinner-container" style="display:none;">
+                <div class="loading-spinner"></div>
+                <p style="color:var(--text-dim);margin-top:12px;font-size:0.9rem;">Fetching system scan telemetry...</p>
+            </div>
+            <!-- Table -->
+            <div style="overflow-x:auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Prediction</th>
+                            <th>Confidence</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminHistoryBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p style="text-align:center;font-size:0.8rem;color:var(--text-dim);">
+            &copy; 2026 AgriShield AI Inc. Admin Governance Terminal.
+        </p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

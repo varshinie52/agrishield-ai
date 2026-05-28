@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AgriShield AI - Technical Support Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">AGRI<span>SHIELD</span></a>
+        <div class="nav-container">
+            <ul class="nav-links" id="navbarLinksList">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div id="navbarAuthWrapper"></div>
+        </div>
+    </nav>
+    <main class="grid-2">
+        <div>
+            <h2 style="margin-bottom: 30px;">Core Reference Knowledge FAQs</h2>
+            <div class="glass-card" style="margin-bottom: 15px;">
+                <p style="font-weight: 600;">How clean should sample image exposures be?</p>
+                <p style="font-size: 0.85rem; color: var(--text-mint); opacity: 0.7; margin-top: 8px;">Macro focal arrays captured under clear, diffused daytime lighting profiles deliver the highest classification reliability scores.</p>
+            </div>
+            <div class="glass-card">
+                <p style="font-weight: 600;">Are my scan history logs protected?</p>
+                <p style="font-size: 0.85rem; color: var(--text-mint); opacity: 0.7; margin-top: 8px;">Yes, all training calculations and tracking lists stay inside your browser's local sandbox storage layers.</p>
+            </div>
+        </div>
+        <div class="glass-card">
+            <h3>Transmit Workspace Telemetry Log</h3>
+            <form style="margin-top: 20px;">
+                <div class="form-group"><label>Identity Email Field</label><input type="email" placeholder="user@agrishield.ai"></div>
+                <div class="form-group"><label>Log Message Payload</label><textarea placeholder="State system queries..." style="height: 120px;"></textarea></div>
+                <button type="button" class="btn-neon" style="width: 100%;">Dispatch Log Metrics</button>
+            </form>
+        </div>
+    </main>
+    <script src="js/app.js"></script>
+</body>
+</html>

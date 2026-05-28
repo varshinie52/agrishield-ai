@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AgriShield AI - Access Verification Terminal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="flex-center" style="min-height: 100vh; padding: 20px;">
+        <div class="glass-card" style="width: 100%; max-width: 440px;">
+            <h2 style="text-align: center; margin-bottom: 8px;">Terminal Security Check</h2>
+            <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 30px;">Input authentication telemetry fields.</p>
+            <form id="formLoginContainer">
+                <div class="form-group"><label>Identity Email Vector</label><input type="email" id="loginEmailField" required placeholder="varshini@agrishield.ai"></div>
+                <div class="form-group"><label>Workspace Security Key</label><input type="password" id="loginPasswordField" required placeholder="••••••••"></div>
+                <button type="submit" class="btn-neon" style="width: 100%; margin-top: 10px;">Authorize Workspace Connectivity</button>
+            </form>
+            <p style="text-align: center; margin-top: 25px; font-size: 0.9rem; color: var(--text-mint);">No registered telemetry signature? <a href="signup.html" style="color: var(--primary-neon); text-decoration: none; font-weight: 600;">Create Node</a></p>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
